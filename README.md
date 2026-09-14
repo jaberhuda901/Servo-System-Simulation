@@ -14,7 +14,7 @@ This laboratory examines the dynamics of a position controller for a motor. The 
 
 A servomechanical system is used as the control design. In such a system, an electrical input is provided to generate a mechanical output. Figure 1 illustrates such a system.
 
-![Figure 1. Control Design of a Servo system](images/fig1_servo_system.png)  
+![Figure 1. Control Design of a Servo system](images/image_01.jpg)  
 *Figure 1. Control Design of a Servo system.*
 
 In this control system, an input potentiometer is used. The angular position of the output shaft is controlled by turning the dial to set the input voltage $e_1(t)$ of the input potentiometer.
@@ -40,7 +40,7 @@ From this equation, we can conclude:
 
 Figure 2 illustrates the block diagram of the servo system.
 
-![Figure 2. Block Diagram for the servo system](images/fig2_block_diagram.png)  
+![Figure 2. Block Diagram for the servo system](images/image_02.jpg)  
 *Figure 2. Block Diagram for the servo system.*
 
 The block diagram in Figure 2 shows that the rotations of the input and output potentiometers are fed into the amplifier, which drives the motor rotation.
@@ -54,7 +54,7 @@ The block diagram in Figure 2 shows that the rotations of the input and output p
 #### Position Feedback Design
 First, we analyze the position feedback design of the servomechanism. Figure 3 shows the block diagram built in SIMULINK to simulate the response.
 
-![Figure 3. Block Diagram for position feedback design](images/fig3_position_feedback.png)  
+![Figure 3. Block Diagram for position feedback design](images/image_03.jpg)  
 *Figure 3. Block Diagram for position feedback design.*
 
 From Figure 3, we determine that there are two nested feedback loops which can be reduced to find the overall transfer function response.
@@ -65,7 +65,7 @@ $$H_{\text{inner}}(s) = \frac{\frac{k_m}{R_a J}}{s + \frac{R_a b + k_m^2}{R_a J}
 
 The reduced block diagram after forming the inner feedback loop is shown in Figure 4.
 
-![Figure 4. Representation of a block diagram after the reduction of the simulation diagram](images/fig4_reduced_block_diagram.png)  
+![Figure 4. Representation of a block diagram after the reduction of the simulation diagram](images/image_04.jpg)  
 *Figure 4. Representation of block diagram after reduction.*
 
 After further block reduction, the transfer function of the outer feedback loop can be written as:
@@ -81,7 +81,7 @@ $$H(s) = \frac{\frac{A k_1 k_m}{R_a J N}}{s^2 + \frac{R_a b + k_m^2}{R_a J} s + 
 
 After designing the system (Figure 3), both the block diagram and the reduced transfer function were simulated together to compare step responses. Figure 5 shows the Simulink comparison layout.
 
-![Figure 5. Simulink simulation to compare the step response of the block diagram](images/fig5_simulink_comparison.png)  
+![Figure 5. Simulink simulation to compare the step response of the block diagram](images/image_05.jpg)  
 *Figure 5. Simulink simulation to compare the step response of the block diagram.*
 
 Comparing the overall transfer function to the standard second-order system equation:
@@ -98,7 +98,7 @@ $$\zeta = \frac{R_a b + k_m^2}{2 R_a J} \cdot \frac{1}{\sqrt{\frac{A k_2 k_m}{N 
 
 The parameters were evaluated in MATLAB as shown below:
 
-![Figure 6. MATLAB code for static gain, natural frequency (damped and undamped) and the damping ratio](images/fig6_matlab_code.png)  
+![Figure 6. MATLAB code for static gain, natural frequency (damped and undamped) and the damping ratio](images/image_06.jpg)  
 *Figure 6. MATLAB code for position feedback analysis.*
 
 ```matlab
@@ -136,7 +136,7 @@ Since $k_1 = k_2$, the final value is equal to **1**.
 
 The second configuration analyzed is the rate feedback design. Figure 7 shows the block diagram for rate feedback.
 
-![Figure 7. Block Diagram for rate feedback design](images/fig7_rate_feedback.png)  
+![Figure 7. Block Diagram for rate feedback design](images/image_07.jpg)  
 *Figure 7. Block Diagram for rate feedback design.*
 
 Combining the feedback loops yields the closed-loop transfer function:
@@ -145,12 +145,12 @@ $$H_{\text{rate}}(s) = \frac{\frac{k_1 A B}{N}}{s^2 + (C + A B k_r) s + \frac{k_
 
 The reduced block diagram for the rate feedback design is shown in Figure 8.
 
-![Figure 8. Block diagram of Rate feedback design (after reducing the simulation diagram)](images/fig8_rate_feedback_reduced.png)  
+![Figure 8. Block diagram of Rate feedback design (after reducing the simulation diagram)](images/image_08.jpg)  
 *Figure 8. Block diagram of Rate feedback design after reduction.*
 
 Both the physical block simulation and the transfer function model were run simultaneously to compare step responses. Figure 9 shows the comparison setup in Simulink.
 
-![Figure 9. Simulink simulation to compare the step response of the block diagram](images/fig9_rate_simulink_comparison.png)  
+![Figure 9. Simulink simulation to compare the step response of the block diagram](images/image_09.jpg)  
 *Figure 9. Simulink setup comparing block diagram and transfer function step response.*
 
 Comparing $H_{\text{rate}}(s)$ to the standard second-order form:
@@ -167,7 +167,7 @@ $$\zeta = \frac{R_a b + k_m^2 + A k_r k_m}{2 R_a J \sqrt{\frac{k_2 A k_m}{N R_a 
 
 The system script for rate feedback in MATLAB is shown below:
 
-![Figure 10. MATLAB code for rate feedback analysis](images/fig10_matlab_code_rate.png)  
+![Figure 10. MATLAB code for rate feedback analysis](images/image_10.jpg)  
 *Figure 10. MATLAB code for rate feedback analysis.*
 
 ```matlab
@@ -201,7 +201,7 @@ Since $k_1 = k_2$, the final value is **1**.
 
 Figure 11 shows the Simulink structure used to compare step responses with and without rate feedback.
 
-![Figure 11. Simulink simulation of step response with or without rate feedback](images/fig11_simulink_rate_comparison.png)  
+![Figure 11. Simulink simulation of step response with or without rate feedback](images/image_11.jpg)  
 *Figure 11. Simulink simulation of step response with or without rate feedback.*
 
 ---
