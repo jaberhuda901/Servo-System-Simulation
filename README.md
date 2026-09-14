@@ -98,9 +98,6 @@ $$\zeta = \frac{R_a b + k_m^2}{2 R_a J} \cdot \frac{1}{\sqrt{\frac{A k_2 k_m}{N 
 
 The parameters were evaluated in MATLAB as shown below:
 
-![Figure 6. MATLAB code for static gain, natural frequency (damped and undamped) and the damping ratio](images/image_06.jpg)  
-*Figure 6. MATLAB code for position feedback analysis.*
-
 ```matlab
 % Parameters given
 km = 1.5275;
@@ -121,6 +118,7 @@ k = k1 / k2;
 damping = (Ra * b + km^2) / (2 * Ra * J * sqrt((A * k2 * km) / (Ra * J * N)));
 wd = wn * sqrt(1 - damping^2);
 ```
+*Figure 6. MATLAB code for static gain, natural frequency (damped and undamped) and the damping ratio.*
 
 To find the final steady-state value for $\phi_2(t)$, we apply the Final Value Theorem (FVT) for Laplace transforms, where the input is a unit step function $\phi_1(t) = u(t) \implies \Phi_1(s) = \frac{1}{s}$:
 
@@ -167,8 +165,7 @@ $$\zeta = \frac{R_a b + k_m^2 + A k_r k_m}{2 R_a J \sqrt{\frac{k_2 A k_m}{N R_a 
 
 The system script for rate feedback in MATLAB is shown below:
 
-![Figure 10. MATLAB code for rate feedback analysis](images/image_10.jpg)  
-*Figure 10. MATLAB code for rate feedback analysis.*
+<!-- ![Figure 10. MATLAB code for rate feedback analysis](images/image_10.jpg)   -->
 
 ```matlab
 % Parameters given
@@ -192,6 +189,7 @@ k = k1 / k2;
 damping = (sqrt(N) * (C + (A * B * kr))) / (sqrt(k2 * A * B));
 wd = wn * sqrt(1 - damping^2);
 ```
+*Figure 10. MATLAB code for static gain, natural frequency (damped and undamped) and the damping ratio.*
 
 Applying the Final Value Theorem for a unit step input:
 
@@ -233,19 +231,19 @@ Using FVT, steady-state output values were calculated as shown in Table 2:
 
 The step response curves for each gain $A$ are shown below:
 
-![Figure 12. Gain case A=4 (overdamped)](images/fig12_gain_a4.png)  
+![Figure 12. Gain case A=4 (overdamped)](images/image_19.jpg)  
 *Figure 12. Gain case $A=4$ (Overdamped).*  
 *Observation:* Takes approximately 95 seconds to reach the steady-state value of 1 without oscillations or overshoot.
 
-![Figure 13. Gain case A=17 (Critically Damped)](images/fig13_gain_a17.png)  
+![Figure 13. Gain case A=17 (Critically Damped)](images/image_20.jpg)  
 *Figure 13. Gain case $A=17$ (Critically Damped).*  
 *Observation:* Reaches steady state in approximately 20 seconds without overshoot, significantly improving system responsiveness.
 
-![Figure 14. Gain case A=35 (underdamped)](images/fig14_gain_a35.png)  
+![Figure 14. Gain case A=35 (underdamped)](images/image_21.jpg)  
 *Figure 14. Gain case $A=35$ (Underdamped).*  
 *Observation:* Reaches steady state in about 15 seconds, with a slight overshoot prior to settling.
 
-![Figure 15. Gain Case A=300 (underdamped)](images/fig15_gain_a300.png)  
+![Figure 15. Gain Case A=300 (underdamped)](images/image_22.jpg)  
 *Figure 15. Gain case $A=300$ (Underdamped).*  
 *Observation:* System responds rapidly, settling in ~17 seconds, but exhibits large initial overshoot and noticeable oscillation.
 
@@ -255,11 +253,11 @@ The step response curves for each gain $A$ are shown below:
 
 Different values of rate feedback gain $k_r$ were evaluated:
 
-![Figure 16. Kr=0.6](images/fig16_kr_06.png)  
+![Figure 16. Kr=0.6](images/image_23.jpg)  
 *Figure 16. Response for $k_r = 0.6$.*  
 *Observation:* With a low value of $k_r$, the response remains slightly underdamped, stabilizing in around 15 seconds.
 
-![Figure 17. Kr=6](images/fig17_kr_6.png)  
+![Figure 17. Kr=6](images/image_24.jpg)  
 *Figure 17. Response for $k_r = 6$.*  
 *Observation:* With a high value of $k_r$, the system becomes heavily damped, taking over 30 seconds to reach steady state.
 
